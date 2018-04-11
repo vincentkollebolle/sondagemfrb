@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<style>
+body {
+    font-size:18px;
+}
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700 !important;
+}
+h1 {
+    font-size: 45px;
+    letter-spacing: -0.05em;
+}
+div.carousel { margin-top: 40px; }
+div.carousel-item { height:500px;}
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #59698D;
+    background-color: white !important;
+    color: #59698D !important;
+    border-radius: 50%;
+    padding: 22px 18px 15px 18px;
+    opacity: 0.5;
+}
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+    border: 2px solid #4285F4;
+    color: #4285F4 !important;
+    background-color: white !important; }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+    font-size: 1.7rem; }
+Copy
+
+Vertical registratio
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Sondage : Le revenu de base pour vous </h1>
+    </div>
+</div>
+<div class="sondage">
+    <!-- Stepper -->
+    {#
+    <div class="row">
+        <div class="col-md-12">
+            <div class="steps-form-2">
+                <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+                    <div class="steps-step-2">
+                        <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Basic Information">
+                            <div><i class="fa fa-user" aria-hidden="true"></i></div>
+                            <!--div>Début</div-->
+                        </a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Personal Data">
+                        <div><i class="fa fa-users" aria-hidden="true"></i></div>    
+                        <!--div>Partie 1: Les attentes sociétales</div-->
+                    </a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Terms and Conditions">
+                            <i class="fas fa-wrench"></i><br />
+                            <!--div>Partie 2: Les leviers de financements</div-->
+                        </a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish">
+                            <i class="fa fa-piggy-bank" aria-hidden="true"></i><br /> 
+                            <!--div>Partie 3: Le montant</div-->
+                        </a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish">
+                            <i class="fa fa-bullhorn" aria-hidden="true"></i><br />
+                            <!--div>Partage</div-->
+                        </a>
+                    </div>
+                    <div class="steps-step-2">
+                        <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish">
+                            <i class="fas fa-chart-pie"></i><br />    
+                            <!--div>Résultats</div-->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    #}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                {{ form_start(form) }}
+                <!--slide1-->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                            <div style="font-size:75px">
+                                <i class="fa fa-user" aria-hidden="true"></i> 
+                                <span class="currentslide"></span>
+                            </div>
+                            <h2>Avant de commencer quelques informations sur vous</h2>
+                        </div>
+                        <div class="col-md-8">
+                            <p>
+                                Bienvenu dans le grand sondage MFRB sur les revenus de base.
+                                Il à pour but de vous permettre de trouver la concrétisation
+                                d'un revenu de base qui vous convient le mieux !<br />
+                                Répondez à ces quelques questions pour découvrir les projets de concrétisation fait pour vous !  
+                                <h3>Avant de commencer quelques informations<br /> 
+                                sur vous : </h3>
+                            </p>
+                            {{ form_row(form.label) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.codepostal) }}
+                        </div>
+                    </div>
+                </div>
+                {% for partie in parties %}
+                    {% for rubrique in partie.rubriques %}
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div style="font-size:75px">
+                                        <i class="fa fa-user" aria-hidden="true"></i> 
+                                        <span class="currentslide"></span>
+                                    </div>
+                                    <h2>{{ partie.label }}</h2>
+                                    
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3> {{ rubrique.label }} </h3>
+                                            <b>Le revenu de base pour vous, il doit:</b><br /><br />
+                                        </div>
+                                    </div>
+                                    {% for proposition in rubrique.propositions %}
+                                    <div class="row">
+                                        <div class="col-md-1 text-right">
+                                            {% set widgetname = 'prop' ~ proposition.id %}
+                                            <div>
+                                                <input id="form_{{ widgetname }}" name="form[{{ widgetname }}]" value="0" type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-11">
+                                            <label for="form_{{ widgetname }}">
+                                                {{ proposition.label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div style="font-size:75px">
+                                <i class="fa fa-user" aria-hidden="true"></i> 
+                                <span class="currentslide"></span>
+                            </div>
+                            <h2>Publier mes réponses</h2>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3> Publier mes réponses et voir mes résultats </h3>
+                                    {{ form_widget(form._token) }}
+                                    {{ form_row(form.save) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                    <a href="#carouselExampleIndicators" class="btn btn-primary" data-slide="prev"> Précédent </a>
+                </div>
+                <div class="col-md-8">
+                </div>
+                <div class="col-md-2">
+                    <a href="#carouselExampleIndicators" class="btn btn-primary" data-slide="next"> Suivant </a>
+                </div>
+            </div>
+        </div>
+    </div>          
+</div>
+{% endblock %}
+
+{% block customjs %}
+    <script>
+        $( document ).ready(function() {
+            var totalItems = $('.carousel-item').length;
+            console.log(totalItems);
+            currentIndex = $('.carousel-item.active').index();
+            $('.currentslide').html(''+currentIndex+'/'+totalItems+'');
+            
+            $('#carouselExampleIndicators').on('slide.bs.carousel', function () {
+                currentIndex = $('.carousel-item.active').index() + 1;
+                $('.currentslide').html(''+currentIndex+'/'+totalItems+'');
+            });
+        });
+    </script>
+{% endblock %}

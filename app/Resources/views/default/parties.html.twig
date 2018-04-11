@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="welcome">
+        <h1>Administer les parties </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Label de la partie </th>
+                    </tr>
+                </thead>
+                <tbody>    
+                    {% for partie in parties %}
+                        <tr>
+                            <td> {{partie.label}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Ajouter une partie</h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    
+{% endblock %}
+

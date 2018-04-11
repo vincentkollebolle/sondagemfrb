@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Administrer les propositions </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            {% for partie in parties %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>{{ partie.label }}</h2>
+                    </div>
+                </div>
+                {% for rubrique in partie.rubriques %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>{{ rubrique.label }}</h3>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Partie </th>
+                                        <th>Rubrique</th>
+                                        <th> Label de la proposition</th>
+                                    </tr>
+                                </thead>
+                                <tbody>       
+                                    {% for proposition in rubrique.propositions %}
+                                        <tr>
+                                            <td> {{proposition.rubrique.partie.label}}</td>
+                                            <td> {{proposition.rubrique.label}}</td>
+                                            <td> {{proposition.label}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <div class="col-md-3">
+            <h3>Ajouter une proposition</h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    
+{% endblock %}

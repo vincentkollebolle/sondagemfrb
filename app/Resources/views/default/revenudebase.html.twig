@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="welcome">
+        <h1>Administer les propositions de revenu de base </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Label de la partie </th>
+                    </tr>
+                </thead>
+                <tbody>    
+                    {% for sondage in sondages %}
+                        <tr>
+                            <td> {{sondage.label}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Ajouter un revenu de base </h3>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            
+        </div>
+    </div>
+    
+{% endblock %}
+
