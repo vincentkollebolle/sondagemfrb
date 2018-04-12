@@ -9,22 +9,79 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
+body {
+    font-size:18px;
+    background: black;
+    font-family: 'Montserrat', sans-serif;
+}
+.currentslide { font-size:45px; }
+.yellowbackground {
+    background: #fee70e;
+    color:black;
+    padding: 20px;
+}
+.blackbackground {
+    background: #000000;
+    color:white;
+    padding: 20px;
+}
+.bluebackground {
+    background:#0279af;
+    color: white;
+    padding: 20px;
+    min-height: 650px;
+}
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700 !important;
+    margin-top: 10px;
+}
+h1 {
+    font-size: 45px;
+    letter-spacing: -0.05em;
+}
+h3 {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+.slide-line-one { height:140px; }
+.slide-line-two { height:430px; }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #59698D;
+    background-color: white !important;
+    color: #59698D !important;
+    border-radius: 50%;
+    padding: 22px 18px 15px 18px;
+    opacity: 0.5;
+}
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+    border: 2px solid #4285F4;
+    color: #4285F4 !important;
+    background-color: white !important; }
+.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+    font-size: 1.7rem; }
+</style>
+
     {% block stylesheets %}{% endblock %}
     <title>{% block title %}Sondage : Le revenu de base pour vous{% endblock %}</title>
   </head>
   <body>
-    <div class="container">
-        <div id="menu" class="row">
-            <div class="col-md-12">
-                {% include "default/menu.html.twig" %}
-            </div>
-        </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 {% block body %}{% endblock %}
             </div>
         </div>
-    </div>        
+    </div>   
+    <div id="menu" class="row">
+            <div class="col-md-12">
+                {% include "default/menu.html.twig" %}
+            </div>
+        </div>     
     {% block javascripts %}{% endblock %}
 
     <!-- Optional JavaScript -->

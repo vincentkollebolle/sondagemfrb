@@ -1,0 +1,42 @@
+<div class="carousel-item active">
+    <div class="row">
+        <div class="col-md-3 bluebackground text-center">
+            <div style="font-size:150px">
+                <i class="fa fa-user" aria-hidden="true"></i> 
+            </div>
+            <p>
+                Bienvenu dans le grand sondage MFRB sur les revenus de base.
+                Il à pour but de vous permettre de trouver la concrétisation
+                d'un revenu de base qui vous convient le mieux !<br />
+                Répondez à ces quelques questions pour découvrir les projets de concrétisation fait pour vous !  
+            </p>
+        </div>
+        <div class="col-md-9 yellowbackground">
+            <div class="row slide-line-one">
+                <div class="col-md-12">
+                    <h3>Avant de commencer quelques informations<br /> 
+                    sur vous : </h3>
+                </div>
+            </div>
+            <div class="row slide-line-two">
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-group">
+                        <label for="label">{{ form_label(form.email) }}</label>
+                        {{ form_widget(form.email, { 'attr': {'class': 'form-control'}}) }}
+                        <small id="emailHelp" class="form-text text-muted">{{ form_errors(form.email) }}</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="label">{{ form_label(form.codepostal) }}</label>
+                        {{ form_widget(form.codepostal, { 'attr': {'class': 'form-control'}}) }}
+                        <small id="emailHelp" class="form-text text-muted">{{ form_errors(form.codepostal) }}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="#carouselExampleIndicators" class="btn btn-primary" data-slide="next"> Suivant </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

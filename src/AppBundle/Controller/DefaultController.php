@@ -34,9 +34,9 @@ class DefaultController extends Controller
 
         $sondage = new Sondage();
         $sondage->setOfficiel(false);
+        $sondage->setLabel("fromweb");
         
         $formBuilder = $this->createFormBuilder($sondage);
-        $formBuilder->add('label', TextType::class, array('label' => 'Nom du RDB'));
         $formBuilder->add('email', TextType::class, array('label' => 'Votre E-mail'));
         $formBuilder->add('codepostal', TextType::class, array('label' => 'Votre Code postal'));
         foreach($propositions as $proposition) {
@@ -65,6 +65,7 @@ class DefaultController extends Controller
                 //créer le compteur
                 $resultat["sondageNom"] = $sondageofficiel->getLabel();
                 $resultat["sondageId"] = $sondageofficiel->getId();
+                $resultat["nbpropositions"] = count($propositions);
                 $resultat["resultat"] = 0;
                 
                 //pour chaque sondage récup toutes les réponses
@@ -81,12 +82,14 @@ class DefaultController extends Controller
             //parcourrir chaque sondage officiel
             //faire un compteur de reponse identique
             //. afficher les compteurs dans l'ordre.
-            echo "<h1>Vos résultats : </h1>";
+            //echo "<h1>Vos résultats : </h1>";
             foreach ($arrayresult as $value) {
-                echo "Rdb: ".$value['sondageNom']." > score: ".$value['resultat']." / ".count($propositions);
-                echo '<br />';
+                //echo "Rdb: ".$value['sondageNom']." > score: ".$value['resultat']." / ".count($propositions);
+                //echo '<br />';
             }
-            die();
+            return $this->render('default/resultats.html.twig', array(
+                'arrayresult' => $arrayresult
+            ));
         }    
         return $this->render('default/index.html.twig', array(
             'parties' => $parties,

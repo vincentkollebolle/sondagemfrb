@@ -1,0 +1,50 @@
+{% for partie in parties %}
+    {% for rubrique in partie.rubriques %}
+    <div class="carousel-item">
+        <div class="row">
+            <div class="col-md-3 bluebackground text-center">
+                <div style="font-size:150px">
+                    <i class="fa fa-user" aria-hidden="true"></i> 
+                </div>
+                <h2>{{ partie.label }}</h2>
+
+            </div>
+            <div class="col-md-9 yellowbackground">
+                <div class="row slide-line-one">
+                    <div class="col-md-12">
+                        <h3> {{ rubrique.label }} </h3>
+                        <b>Le revenu de base pour vous, il doit :</b> <em>(plusieurs choix possible)</em><br />
+
+                        <br />
+                    </div>
+                </div>
+                <div class="row slide-line-two">
+                    {% for proposition in rubrique.propositions %}
+                    <div class="propCol1 col-md-6">
+                        <div class="row">
+                            <div class="col-md-1 text-right">
+                                {% set widgetname = 'prop' ~ proposition.id %}
+                                <div>
+                                    <input id="form_{{ widgetname }}" name="form[{{ widgetname }}]" value="0" type="checkbox">
+                                </div>
+                            </div>
+                            <div class="col-md-11">
+                                <label for="form_{{ widgetname }}">
+                                    {{ proposition.label }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="#carouselExampleIndicators" class="btn btn-primary" data-slide="prev"> Précédent </a>
+                        <a href="#carouselExampleIndicators" class="btn btn-primary" data-slide="next"> Suivant </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endfor %}

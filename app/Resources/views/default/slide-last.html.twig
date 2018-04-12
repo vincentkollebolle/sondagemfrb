@@ -1,0 +1,49 @@
+<div class="carousel-item">
+    <div class="row">
+        <div class="col-md-3 bluebackground text-center">
+            <div style="font-size:150px">
+                <i class="fa fa-user" aria-hidden="true"></i> 
+            </div>
+            <h3>Publier mes réponses</h3>
+        </div>
+        <div class="col-md-9 yellowbackground">
+            <div class="row slide-line-one">
+                <div class="col-md-12">
+                    <h2> Publier mes réponses et voir mes résultats </h2>
+                    <p class="text-center">
+                        Merci de votre participation. Une dernière étape (optionnelle)
+                        avant de découvrir les propositions concrète de revenu de base
+                        qui vous parle le plus. Et si vous invitiez des ami.e.s à faire 
+                        ce quizz et découvrir le revenu de base ? 
+                    </p>
+                </div>
+            </div>
+            <div class="row slide-line-two">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input type="email" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">E-mail</label>
+                        <input type="email" class="form-control">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Inviter</button>
+                    </form>
+                </div>
+                <div class="col-md-6 offset-md-3 text-center">
+                    {{ form_widget(form._token) }}
+                    <p> C'est fait ? Publiez vos réponse pour accéder aux résultats ! 
+                    {{ form_row(form.save, { 'attr': {'label':'Voir mes résultats', 'class': 'btn btn-primary', 'style' : 'width:100%'}}) }}
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row blackbackground">
+    <div class="col-md-10">
+        <h1>Sondage : Le revenu de base pour vous c'est ?</h1>
+    </div>
+    <div class="col-md-2 text-right">
+        <span class="currentslide"></span>
+    </div>
+</div>
+<div class="sondage">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-3 bluebackground text-center">
+                    <div style="font-size:150px">
+                        <i class="fa fa-user" aria-hidden="true"></i> 
+                    </div>
+                    <p>
+                        RESULTATS  
+                    </p>
+                </div>
+                <div class="col-md-9 yellowbackground">
+                    <div class="row slide-line-one">
+                        <div class="col-md-12">
+                            <h3>Vos résultats : </h3>
+                        </div>
+                    </div>
+                    <div class="row slide-line-two text-center">
+                        <div class="col-md-12">
+                            {% for result in arrayresult %}
+                            <strong> {{ result.sondageNom }} ({{result.resultat}} / {{ result.nbpropositions}}) </strong><br/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="" class="btn btn-primary">Partager sur facebook</button>
+                            <button type="" class="btn btn-primary">Partager sur Twitter</button>
+                            <button type="" class="btn btn-primary">Inscription newsletter</button>
+                            <button type="" class="btn btn-primary">Découvrir le MFRB</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>          
+</div>
+{% endblock %}
+
